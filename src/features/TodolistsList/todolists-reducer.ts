@@ -16,7 +16,7 @@ export const fetchTodolistsTC = createAsyncThunk('todolists/fetchTodolists', asy
     try {
         dispatch(setAppStatusAC({status: 'succeeded'}))
         return {todolists: res.data}
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, dispatch)
         return rejectWithValue(e)
     }
@@ -31,7 +31,7 @@ export const removeTodolistTC = createAsyncThunk('todolists/removeTodolist', asy
         await todolistsAPI.deleteTodolist(todolistId)
         dispatch(setAppStatusAC({status: 'succeeded'}))
         return {id: todolistId}
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, dispatch)
         return rejectWithValue(e)
     }
@@ -46,7 +46,7 @@ export const addTodolistTC = createAsyncThunk('todolists/addTodolist', async (ti
         const res = await todolistsAPI.createTodolist(title)
         dispatch(setAppStatusAC({status: 'succeeded'}))
         return {todolist: res.data.data.item}
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, dispatch)
         return rejectWithValue(e)
     }
@@ -59,7 +59,7 @@ export const changeTodolistTitleTC = createAsyncThunk('todolists/changeTodolistT
     try {
         await todolistsAPI.updateTodolist(param.id, param.title)
         return {id: param.id, title: param.title}
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, dispatch)
         return rejectWithValue(e)
     }

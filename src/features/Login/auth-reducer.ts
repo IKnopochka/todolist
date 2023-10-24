@@ -16,10 +16,11 @@ export const login = createAsyncThunk<undefined, LoginParamsType, { rejectValue:
             handleServerAppError(response.data, thunkAPI.dispatch)
             return thunkAPI.rejectWithValue({fieldsError: response.data.fieldsErrors, error: response.data.messages})
         }
-    } catch (e) {
-        const error: AxiosError = e
-        handleServerNetworkError(error, thunkAPI.dispatch)
-        return thunkAPI.rejectWithValue({fieldsError: undefined, error: [error.message]})
+    } catch (e:any) {
+        //const error: AxiosError = e
+
+        handleServerNetworkError(e, thunkAPI.dispatch)
+        return thunkAPI.rejectWithValue({fieldsError: undefined, error: [e.message]})
     }
 })
 
@@ -34,7 +35,7 @@ export const logoutTC = createAsyncThunk('auth/logout', async (param, thunkAPI) 
             handleServerAppError(response.data, thunkAPI.dispatch)
             return thunkAPI.rejectWithValue('')
         }
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, thunkAPI.dispatch)
         return thunkAPI.rejectWithValue(e)
     }

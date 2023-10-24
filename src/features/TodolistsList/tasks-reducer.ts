@@ -42,7 +42,7 @@ export const addTaskTC = createAsyncThunk('tasks/addTaskTC', async (param: { tit
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(res.data)
         }
-    } catch (e) {
+    } catch (e: any) {
         handleServerNetworkError(e, dispatch)
         return rejectWithValue(e)
     }
@@ -76,7 +76,7 @@ export const updateTask = createAsyncThunk('tasks/updateTask', async (param: { t
             handleServerAppError(res.data, dispatch)
             return rejectWithValue('')
         }
-    } catch (error) {
+    } catch (error: any) {
         handleServerNetworkError(error, dispatch)
         return rejectWithValue(error)
     }

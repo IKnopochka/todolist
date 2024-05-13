@@ -59,7 +59,7 @@ export const Login = () => {
                     <FormLabel>
                         <p>
                             To log in get registered <a href={'https://social-network.samuraijs.com/'}
-                                                        target={'_blank'}>here</a>
+                                                        target={'_blank'} rel="noreferrer">here</a>
                         </p>
                         <p>
                             or use common test account credentials:
@@ -73,6 +73,7 @@ export const Login = () => {
                     <FormGroup>
                         <TextField
                             label="Email"
+                            defaultValue={'irinaredhood@gmail.com'}
                             margin="normal"
                             {...formik.getFieldProps("email")}
                         />
@@ -80,6 +81,7 @@ export const Login = () => {
                         <TextField
                             type="password"
                             label="Password"
+                            defaultValue={'FreeToWatch'}
                             margin="normal"
                             {...formik.getFieldProps("password")}
                         />

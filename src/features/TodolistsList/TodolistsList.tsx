@@ -16,6 +16,7 @@ import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
 import { Navigate } from 'react-router-dom'
+import {PATH} from "app/AppRoutes";
 
 type PropsType = {
     demo?: boolean
@@ -78,7 +79,7 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     }, [dispatch])
 
     if (!isLoggedIn) {
-        return <Navigate to={"/login"} />
+        return <Navigate to={PATH.LOGIN} />
     }
 
     return <>

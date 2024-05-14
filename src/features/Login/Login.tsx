@@ -56,10 +56,19 @@ export const Login = () => {
         <Grid item xs={4}>
             <form onSubmit={formik.handleSubmit}>
                 <FormControl>
+                    <FormLabel>
+                        <p>
+                            To log in use test account credentials:
+                        </p>
+                        <p> Email: irinaredhood@gmail.com
+                        </p>
+                        <p>
+                            Password: FreeToWatch
+                        </p>
+                    </FormLabel>
                     <FormGroup>
                         <TextField
                             label="Email"
-                            defaultValue={'irinaredhood@gmail.com'}
                             margin="normal"
                             {...formik.getFieldProps("email")}
                         />
@@ -67,7 +76,6 @@ export const Login = () => {
                         <TextField
                             type="password"
                             label="Password"
-                            defaultValue={'FreeToWatch'}
                             margin="normal"
                             {...formik.getFieldProps("password")}
                         />

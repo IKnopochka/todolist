@@ -19,6 +19,7 @@ import {initializeApp, RequestStatusType} from './app-reducer'
 import {BrowserRouter, NavLink, Route, Routes} from 'react-router-dom'
 import {Login} from '../features/Login/Login'
 import {logoutTC} from '../features/Login/auth-reducer'
+import {PATH} from "app/AppRoutes";
 
 type PropsType = {
     demo?: boolean
@@ -66,7 +67,7 @@ function App({demo = false}: PropsType) {
             <Container fixed>
                 <Routes>
                     <Route path={'/*'} element={<TodolistsList demo={demo}/>}/>
-                    <Route path={'/login'} element={<Login/>}/>
+                    <Route path={PATH.LOGIN} element={<Login/>}/>
                 </Routes>
             </Container>
 
